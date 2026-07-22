@@ -1,0 +1,542 @@
+/* =========================================================
+   Lycée Polyvalent Jule Garnier — Espace stagiaires
+   Palette : dark mode marine + couleurs vives
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --color-navy: #0B1120;
+    --color-navy-light: #A78BFA;
+    --color-slate: #8B7CC8;
+    --color-bg: #0B1120;
+    --color-white: #16213E;
+    --color-border: #2E3A5C;
+    --color-text: #E8EAF6;
+    --color-text-muted: #9AA3C4;
+    --color-danger-bg: #3B1520;
+    --color-danger: #FB7185;
+
+    --color-gold: #FF9F68;
+    --color-gold-dark: #FFB98A;
+    --color-gold-soft: #2A2038;
+
+    --color-accent1: #F472B6;
+    --color-accent2: #22D3EE;
+    --color-accent3: #FACC15;
+    --color-accent4: #4ADE80;
+
+    --font-display: 'Lora', Georgia, serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    --radius: 12px;
+    --radius-sm: 8px;
+    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.45), 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(160deg, #0B1120 0%, #1B2A4A 50%, #2D1B4E 100%);
+    font-family: var(--font-body);
+    color: var(--color-text);
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* ===== Barre supérieure ===== */
+
+header {
+    background: linear-gradient(135deg, #7C3AED 0%, #EC4899 50%, #FF7A45 100%);
+    color: #fff;
+    padding: 22px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.35);
+}
+
+header::before {
+    content: "LPJG";
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--color-accent3);
+    color: #2E1065;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: .02em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+header {
+    font-family: var(--font-display);
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: .01em;
+}
+
+/* ===== Structure générale des pages ===== */
+
+body:has(header) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 60px;
+}
+
+body:has(header) .container {
+    margin-top: 48px;
+    width: 440px;
+    max-width: calc(100% - 40px);
+}
+
+.container {
+    background: var(--color-white);
+    padding: 38px 42px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--color-border);
+    border-top: 5px solid var(--color-accent1);
+}
+
+body:has(header) .container.container-large {
+    width: 90%;
+    max-width: 1180px;
+    text-align: left;
+    overflow-x: auto;
+}
+
+/* ===== Typographie ===== */
+
+h1 {
+    font-family: var(--font-display);
+    font-size: 25px;
+    font-weight: 600;
+    background: linear-gradient(90deg, var(--color-navy-light), var(--color-accent1));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0 0 26px;
+    text-align: center;
+}
+
+h2 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: var(--color-navy-light);
+}
+
+h3 {
+    font-family: var(--font-display);
+    color: var(--color-text);
+}
+
+label {
+    font-weight: 600;
+    color: var(--color-text);
+    font-size: 14px;
+}
+
+/* ===== Champs de formulaire ===== */
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 14px;
+    margin: 8px 0 20px;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-family: var(--font-body);
+    background: #0F1830;
+    color: var(--color-text);
+    transition: border-color .15s, box-shadow .15s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: var(--color-accent1);
+    box-shadow: 0 0 0 3px rgba(244, 114, 182, 0.22);
+    background: #131E3A;
+}
+
+input[readonly] {
+    background: #10182E;
+    color: var(--color-text-muted);
+}
+
+/* ===== Fiche de renseignements (création stagiaire) ===== */
+
+input[type="date"] {
+    width: 100%;
+    padding: 12px 14px;
+    margin: 8px 0 20px;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-family: var(--font-body);
+    background: #0F1830;
+    color: var(--color-text);
+    transition: border-color .15s, box-shadow .15s;
+}
+
+input[type="date"]:focus {
+    outline: none;
+    border-color: var(--color-accent1);
+    box-shadow: 0 0 0 3px rgba(244, 114, 182, 0.22);
+}
+
+.fiche-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 8px;
+}
+
+.fiche-section {
+    background: #101B36;
+    padding: 22px 24px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-accent2);
+}
+
+.fiche-section:nth-child(2) {
+    border-left-color: var(--color-accent1);
+}
+
+.fiche-section h3 {
+    margin-top: 0;
+    margin-bottom: 14px;
+    color: var(--color-navy-light);
+    font-size: 16px;
+}
+
+.fiche-radio-group {
+    display: flex;
+    gap: 22px;
+    margin: 8px 0 20px;
+}
+
+.fiche-radio {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--color-text);
+    cursor: pointer;
+}
+
+.fiche-radio input[type="radio"] {
+    accent-color: var(--color-accent1);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+@media (max-width: 640px) {
+    .fiche-columns {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== Boutons ===== */
+
+button,
+.btn-primary {
+    width: 100%;
+    padding: 13px;
+    margin-top: 6px;
+    background: linear-gradient(90deg, var(--color-navy-light), var(--color-accent1));
+    color: #1A0B2E;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 700;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: filter .18s, transform .06s;
+}
+
+button:hover,
+.btn-primary:hover {
+    filter: brightness(1.1);
+}
+
+button:active,
+.btn-primary:active {
+    transform: translateY(1px);
+}
+
+#btn-calcul {
+    background: linear-gradient(90deg, var(--color-gold), var(--color-accent3));
+    color: #2E1500;
+}
+
+#btn-calcul:hover {
+    filter: brightness(1.08);
+}
+
+/* ===== Menu de la page d'accueil ===== */
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.menu a {
+    display: flex;
+    align-items: center;
+    padding: 15px 18px;
+    background: #101B36;
+    color: var(--color-text);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid var(--color-border);
+    border-left: 4px solid var(--color-accent2);
+    font-weight: 600;
+    font-size: 14.5px;
+    transition: background .15s, border-color .15s, transform .1s, color .15s;
+}
+
+.menu a:nth-child(4n+1) { border-left-color: var(--color-accent1); }
+.menu a:nth-child(4n+2) { border-left-color: var(--color-accent2); }
+.menu a:nth-child(4n+3) { border-left-color: var(--color-accent3); }
+.menu a:nth-child(4n+4) { border-left-color: var(--color-accent4); }
+
+.menu a:hover {
+    background: linear-gradient(90deg, var(--color-navy-light), var(--color-accent1));
+    color: #1A0B2E;
+    border-color: transparent;
+    transform: translateX(3px);
+}
+
+/* ===== Barre de recherche ===== */
+
+.search-form {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.search-form input[type="text"] {
+    flex: 1;
+    margin: 0;
+}
+
+.search-form button {
+    width: 52px;
+    margin-top: 0;
+    font-size: 17px;
+    flex-shrink: 0;
+}
+
+.sous-titre {
+    color: var(--color-text-muted);
+    font-size: 13.5px;
+    margin: 0 0 26px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* ===== Messages d'état ===== */
+
+.info-acces {
+    color: var(--color-text-muted);
+    font-size: 13.5px;
+    margin-bottom: 20px;
+}
+
+.info-acces a {
+    color: var(--color-navy-light);
+}
+
+.erreur {
+    background: var(--color-danger-bg);
+    color: var(--color-danger);
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--color-danger);
+    font-size: 13.5px;
+    margin-bottom: 18px;
+}
+
+.retour {
+    margin-top: 22px;
+    font-size: 13.5px;
+    text-align: center;
+}
+
+.retour a {
+    color: var(--color-navy-light);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.retour a:hover {
+    text-decoration: underline;
+}
+
+/* ===== Blocs de compétences (notation) ===== */
+
+#form-notation {
+    background: var(--color-white);
+    padding: 34px 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    width: 620px;
+    max-width: calc(100% - 40px);
+    border: 1px solid var(--color-border);
+    border-top: 5px solid var(--color-accent2);
+}
+
+.bloc-competence {
+    margin-bottom: 20px;
+    padding: 20px 22px;
+    background: #101B36;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-accent2);
+    transition: border-color .15s, transform .12s;
+}
+
+.bloc-competence:nth-child(4n+1) { border-left-color: var(--color-accent1); }
+.bloc-competence:nth-child(4n+2) { border-left-color: var(--color-accent2); }
+.bloc-competence:nth-child(4n+3) { border-left-color: var(--color-accent3); }
+.bloc-competence:nth-child(4n+4) { border-left-color: var(--color-accent4); }
+
+.bloc-competence:hover {
+    border-color: var(--color-gold);
+    transform: translateY(-1px);
+}
+
+.bloc-competence h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: var(--color-navy-light);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* ===== Étoiles ===== */
+
+.rating {
+    display: flex;
+    gap: 4px;
+}
+
+.rating span {
+    font-size: 26px;
+    cursor: pointer;
+    color: #3A3F5C;
+    transition: color .15s, transform .1s;
+}
+
+.rating span:hover,
+.rating span.active {
+    color: var(--color-gold);
+    filter: drop-shadow(0 0 4px rgba(255, 159, 104, 0.6));
+}
+
+.rating span:hover {
+    transform: scale(1.12);
+}
+
+/* ===== Note finale ===== */
+
+.bloc-note-final {
+    margin-top: 28px;
+    padding: 22px;
+    background: linear-gradient(120deg, var(--color-gold-soft), #241A34);
+    border-left: 4px solid var(--color-gold);
+    border-radius: var(--radius-sm);
+}
+
+.bloc-note-final label {
+    color: var(--color-gold-dark);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+
+#note20 {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-gold);
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 0;
+    background: #0F1830;
+    border-color: var(--color-gold);
+}
+
+/* ===== Tableau (liste des stagiaires) ===== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--color-white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    font-size: 13.5px;
+}
+
+th, td {
+    padding: 12px 14px;
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
+}
+
+th {
+    background: linear-gradient(90deg, var(--color-navy-light), var(--color-accent1));
+    color: #1A0B2E;
+    font-weight: 700;
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+}
+
+tbody tr:nth-child(even) {
+    background: #101B36;
+}
+
+tbody tr:hover {
+    background: #241A34;
+}
+
+td strong {
+    color: var(--color-accent2);
+    font-family: var(--font-display);
+    font-size: 15px;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 640px) {
+    body:has(header) .container,
+    #form-notation {
+        width: 100%;
+        padding: 26px 22px;
+    }
+
+    header {
+        padding: 18px 20px;
+        font-size: 18px;
+    }
+}
